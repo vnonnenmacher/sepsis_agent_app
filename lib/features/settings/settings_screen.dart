@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sepsis_agent_app/features/settings/tabs/tags_tab.dart';
 import '../../core/widgets/app_scaffold.dart';
 import 'tabs/knowledge_base_tab.dart';
 
@@ -15,7 +16,7 @@ class _ConfigScreenState extends State<ConfigScreen> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this); // Updated length to 4
   }
 
   @override
@@ -51,6 +52,7 @@ class _ConfigScreenState extends State<ConfigScreen> with TickerProviderStateMix
                     indicatorColor: Colors.blue,
                     tabs: const [
                       Tab(text: '📚 Base de Conhecimento'),
+                      Tab(text: '🏷️ Tags'),
                       Tab(text: '⚙️ Gerais'),
                       Tab(text: '💬 Comunicações'),
                     ],
@@ -63,6 +65,7 @@ class _ConfigScreenState extends State<ConfigScreen> with TickerProviderStateMix
                     controller: _tabController,
                     children: const [
                       KnowledgeBaseTab(),
+                      TagsTab(),
                       _GeneralSettingsTab(),
                       _CommunicationTab(),
                     ],
@@ -76,6 +79,7 @@ class _ConfigScreenState extends State<ConfigScreen> with TickerProviderStateMix
     );
   }
 }
+
 
 // ─────────────────────────────
 // ⚙️ TAB 2: Configurações Gerais
